@@ -1,2 +1,2 @@
-# Math-57-Formatter
-A small python program that automatically formats homework in overleaf.
+# Homework Formatter 
+A program in python to automaticly format homework in LaTeX for my engineering homework
