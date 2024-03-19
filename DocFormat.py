@@ -2,12 +2,12 @@ from typing import Any
 
 
 class DocFormat:
-    def __init__(self, name = '', title = '', Lab=True, className = '', questions: dict = {}, questionsB: dict = {}):
+    def __init__(self, name = '', title = '', className = '', Lab=True):
         self.__name = name
         self.__title = title
         self.__Lab = Lab
-        self.__questions = questions
-        self.__questionsB = questionsB
+        self.__questions = {}
+        self.__questionsB = {}
         self.__className = className
         self.__doc = ''
 
@@ -71,10 +71,10 @@ class DocFormat:
     tabsize=2
 }
 
-\title{\Huge{"""+ self.__title + r"""}
+\title{\Huge{"""+ str(self.__title) + r"""}
     \\
-\Large\scshape{"""+ self.__className + r"""}}
-\author{"""+ self.__name + r"""}
+\Large\scshape{"""+ str(self.__className) + r"""}}
+\author{"""+ str(self.__name) + r"""}
 \date{\today}
 
 \lstset{style=myStyle}
@@ -158,11 +158,13 @@ if __name__ == "__main__":
     print("This is the formattingHelpers class")
     
     doc = DocFormat()
-    doc.set_name("John Doe")
-    doc.set_title("Math 57")
-    doc.set_className("Math 57")
-    doc.set_lab(True)
-    doc.set_questions({"Question 1" : "Q1.png", "Question 2" : "Q2.png", "Question 3" : "Q3.png"})
-    #doc.set_questionsPartB({"Question 4" : "Q4.png", "Question 5" : "Q5.png", "Question 6" : "Q6.png"})
+    doc.set_name("Ryan")
+    doc.set_title("Homework 3")
+    doc.set_className("ENGR 213")
+    doc.set_lab(False)
+    qA = {'Question 1': 'ans','Question 2': 'ans2'}
+    qB = {'Question 1': 'ans','Question 2': 'ans2'}
+    doc.set_questions(qA)
+    doc.set_questionsPartB(qB)
     doc.buildFormat()
     print(doc)
